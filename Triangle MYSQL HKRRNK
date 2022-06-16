@@ -1,12 +1,10 @@
-SELECT
- CASE 
- wHEN A + B > C AND B + C > A AND A + C > B 
- THEN
-  case
-   when A = B AND B = C then 'Equilateral'
-   when A = B OR B = C OR C = A then 'Isosceles'
- else 'Scalene'
-END
-else 'Not A Triangle'
-END
-FROM TRIANGLES
+SELECT CASE 
+WHEN A + B > C AND B + C > A AND C + A > B THEN 
+CASE 
+WHEN A = B and B = C THEN "Equilateral"
+WHEN A != B AND B != C AND C != A THEN "Scalene"
+ELSE "Isosceles"
+END 
+ELSE "Not A Triangle"
+END 
+FROM TRIANGLES 
